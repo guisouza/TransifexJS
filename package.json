@@ -1,0 +1,26 @@
+{
+  "name": "transifexjs",
+  "version": "0.0.1",
+  "description": "Transifex API communication module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/guisouza/Transifex-API.git"
+  },
+  "keywords": [
+    "transifex",
+    "i18n",
+    "i10n",
+    "tranlation",
+    "api"
+  ],
+  "author": "Guilherme (Coder) de Souza",
+  "license": "BeerWare",
+  "bugs": {
+    "url": "https://github.com/guisouza/Transifex-API/issues"
+  },
+  "homepage": "https://github.com/guisouza/Transifex-API"
+}
