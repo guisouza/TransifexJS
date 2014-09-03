@@ -29,7 +29,6 @@ module.exports = (function(https){
 	}
 
 	function request(url,callback){
-		console.log(baseUrl+url);
 		https.get(baseUrl+url, function(res) {
 			res.on('data',function(buf){
 				callback(buf.toString())
