@@ -9,7 +9,7 @@ TransifexJS is an module to get data from Transifex API.
 
 ```javascript
 	//NOTE : chainable methods ! =D 
-	transifex = new require('./index');
+	transifex = new require('transifexjs');
 	transifex.login('xxx','xxx')
 	.setProject('site-5')
 	.setResource('strings-site')
