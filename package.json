@@ -22,5 +22,10 @@
   "bugs": {
     "url": "https://github.com/guisouza/Transifex-API/issues"
   },
-  "homepage": "https://github.com/guisouza/Transifex-API"
+  "homepage": "https://github.com/guisouza/Transifex-API",
+  "dependencies": {
+    "inquirer": "^0.8.0",
+    "ordine": "0.0.9",
+    "simple-args": "^1.0.2"
+  }
 }
