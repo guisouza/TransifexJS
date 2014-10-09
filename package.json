@@ -1,6 +1,6 @@
 {
   "name": "transifexjs",
-  "version": "0.0.4",
+  "version": "0.0.8",
   "description": "Transifex API communication module",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/guisouza/Transifex-API.git"
+    "url": "https://github.com/guisouza/TransifexJS.git"
   },
   "keywords": [
     "transifex",
@@ -20,9 +20,11 @@
   "author": "Guilherme (Coder) de Souza",
   "license": "BeerWare",
   "bugs": {
-    "url": "https://github.com/guisouza/Transifex-API/issues"
+    "url": "https://github.com/guisouza/TransifexJS/issues"
   },
-  "homepage": "https://github.com/guisouza/Transifex-API",
+  "homepage": "https://github.com/guisouza/TransifexJS",
+  "readme": "![alt text](http://i.imgur.com/5kxuCNV.png \"TransifexJS\")\n\n\nTransifex nodeJS API\n=========\n\nTransifexJS is an module to get data from Transifex API.\n\n\n```javascript\n\t//NOTE : chainable methods ! =D \n\ttransifex = new require('./index');\n\ttransifex.login('xxx','xxx')\n\t.setProject('site-5')\n\t.setResource('strings-site')\n\t.setLang('en')\n\t.translation(function(c){\n\t\tconsole.log(c)\n\t});\n```\n",
+  "readmeFilename": "README.md",
   "dependencies": {
     "inquirer": "^0.8.0",
     "ordine": "0.0.9",
