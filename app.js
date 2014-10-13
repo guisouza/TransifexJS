@@ -7,37 +7,6 @@ var transifex = require('./index'),
   PWD = process.env.PWD,
   config = PWD + '/' + configFile;
 
-if(_fs.existsSync(config)) {
-  config = require(config);
-} else {
-  if (typeof _cli_args.config !== 'undefined') {
-    config = require(PWD + '/' + _cli_args.config );
-  } else {
-    throw Error('Config file not a found. Please, create config file (' + configFile + ')');
-    return;
-  }
-}
-/*
-  Create var to config and queue
- */
-config.ext = config.ext || 'json';
-
-console.log('Authenticating...');
-
-transifex = transifex.login(config.user, config.pass).setProject(config.project);
-
-transifex.setResource(config.resource);
-
-
-if (config.originFile !== '') {
-  console.log('Sending file...');
-  transifex.sendTranslation(config.originFile, function () {
-    console.log('File send with success.');
-    getTranslate();
-  });
-} else {
-  getTranslate();
-}
 
 var getTranslate = function(lang, cb) {
   if (typeof lang === 'string') {
@@ -101,3 +70,34 @@ var writeFile = function (path, cb) {
     });
   });
 };
+
+if(_fs.existsSync(config)) {
+  config = require(config);
+} else {
+  if (typeof _cli_args.config !== 'undefined') {
+    config = require(PWD + '/' + _cli_args.config );
+  } else {
+    throw Error('Config file not a found. Please, create config file (' + configFile + ')');
+    return;
+  }
+}
+/*
+  Create var to config and queue
+ */
+config.ext = config.ext || 'json';
+
+console.log('Authenticating...');
+
+transifex = transifex.login(config.user, config.pass).setProject(config.project);
+
+transifex.setResource(config.resource);
+
+if (typeof config.originFile !== 'undefined' && config.originFile !== '') {
+  console.log('Sending file...');
+  transifex.sendTranslation(config.originFile, function () {
+    console.log('File send with success.');
+    getTranslate();
+  });
+} else {
+  getTranslate();
+}
