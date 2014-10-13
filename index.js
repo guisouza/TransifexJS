@@ -47,6 +47,10 @@ module.exports = (function(https, request, fs){
     this.langName = langName;
   };
 
+  function getLang(){
+    return this.langName;
+  };
+
   transifex = {
     /**
      * Call api url of transifex.com with GET method
@@ -115,6 +119,9 @@ module.exports = (function(https, request, fs){
     languages : function(callback){
       var url = 'project/'+projectName+'/languages/';
       transifex.get(url, callback);
+    },
+    getLang : function(){
+      return getLang();
     },
     setLang : function(langName){
       setLang(langName);

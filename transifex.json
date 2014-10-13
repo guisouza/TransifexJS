@@ -1,0 +1,10 @@
+{
+  "user": "xxx",
+  "pass": "xxx",
+  "project": "xxx",
+  "resource": "xxx",
+  "originFile": "xxx.json",
+  "language": ["xx", "xx"],
+  "path": "./",
+  "ext": "json"
+}
