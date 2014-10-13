@@ -176,6 +176,7 @@ flush.enqueue(function() {
   if( args.originFile ) {
     console.log('Sending file...');
     transifex.sendTranslation(args.originFile, function() {
+      console.log('File send with success.');
       next();
     });
   } else {
@@ -183,6 +184,7 @@ flush.enqueue(function() {
       if (data.originFile !== '') {
         console.log('Sending file...');
         transifex.sendTranslation(data.originFile, function () {
+          console.log('File send with success.');
           next();
         });
       } else {

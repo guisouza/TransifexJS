@@ -78,7 +78,6 @@ module.exports = (function(https, request, fs){
       var formData = {
         content: fs.createReadStream(__dirname + '/' + data)
       };
-      console.log(baseUrl+url);
       request.put({
         url: baseUrl+url,
         formData: formData
@@ -86,7 +85,6 @@ module.exports = (function(https, request, fs){
         if( err ) {
           return console.error('upload failed:', err);
         }
-        console.log('UPLOAD OK.', body);
         callback(body.toString());
       });
     }
