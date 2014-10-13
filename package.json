@@ -1,6 +1,6 @@
 {
   "name": "transifexjs",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Transifex API communication module",
   "main": "index.js",
   "scripts": {
@@ -30,5 +30,6 @@
     "ordine": "0.0.9",
     "request": "^2.45.0",
     "simple-args": "^1.0.2"
-  }
+  },
+  "bin" : "./cli.js"
 }
