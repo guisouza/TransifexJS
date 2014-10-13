@@ -1,6 +1,6 @@
 {
   "name": "transifexjs",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "Transifex API communication module",
   "main": "index.js",
   "scripts": {
