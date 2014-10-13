@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "i18n": "node app.js"
+    "i18n": "node cli.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
   "dependencies": {
     "inquirer": "^0.8.0",
     "ordine": "0.0.9",
+    "request": "^2.45.0",
     "simple-args": "^1.0.2"
   }
 }
