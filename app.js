@@ -5,9 +5,11 @@ var transifex = require('./index'),
   _cli_args = require('simple-args'),
   configFile = 'transifex.json',
   PWD = process.env.PWD,
-  config = require(PWD + '/' + configFile);
+  config = PWD + '/' + configFile;
 
-if(typeof config === 'undefined') {
+if(_fs.existsSync(config)) {
+  config = require(config);
+} else {
   if (typeof _cli_args.config !== 'undefined') {
     config = require(PWD + '/' + _cli_args.config );
   } else {
