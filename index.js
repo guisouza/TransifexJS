@@ -79,6 +79,14 @@ module.exports = (function(https, request, fs){
      * @return {undefined}            undefined
      */
     put: function(url, data, callback) {
+      var file = process.env.PWD + '/' + data,
+        strings = require(file);
+
+      if( typeof strings[""] !== 'undefined' )
+        delete strings[""];
+
+      fs.writeFileSync(file, strings);
+      
       var formData = {
         content: fs.createReadStream(process.env.PWD + '/' + data)
       };
