@@ -1,6 +1,6 @@
 {
   "name": "transifexjs",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "Transifex API communication module",
   "main": "index.js",
   "scripts": {
@@ -32,7 +32,7 @@
     "simple-args": "^1.0.2"
   },
   "bin" : {
-    "npm": "./cli.js",
-    "app": "./app.js"
+    "transifexjs": "./cli.js",
+    "transifexjs app": "./app.js"
   }
 }
