@@ -1,4 +1,4 @@
-#!/usr/local/bin/node node
+#!/usr/bin/env node
 
 var transifex = require('./index'),
   _fs = require('fs'),
