@@ -76,7 +76,7 @@ module.exports = (function(https, request, fs){
      */
     put: function(url, data, callback) {
       var formData = {
-        content: fs.createReadStream(__dirname + '/' + data)
+        content: fs.createReadStream(process.env.PWD + '/' + data)
       };
       request.put({
         url: baseUrl+url,

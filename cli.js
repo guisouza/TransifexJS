@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/local/bin/node node
 
 var transifex = require('./index'),
   _fs = require('fs'),
@@ -200,7 +200,7 @@ flush.enqueue(function() {
   var path = 'locales/';
   if( args.path ) {
     path = args.path;
-    writeFile(path + config.language, function () {
+    writeFile(path, function () {
       next();
     });
     transifex.setResource(args.resource);
@@ -221,10 +221,9 @@ flush.enqueue(function() {
  */
 var writeFile = function (path, cb) {
   console.log('Getting strings...');
-  var pathFile = path + config.language + '.' + config.ext;
+  var pathFile = process.env.PWD + '/' + path + config.language + '.' + config.ext;
   transifex.translation(function(strings) {
     console.log('Saving file...');
-    console.log(strings);
     strings = JSON.parse(JSON.parse(strings)['content']);
 
     _fs.exists(pathFile, function(exists) {
