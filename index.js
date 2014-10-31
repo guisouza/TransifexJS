@@ -85,7 +85,7 @@ module.exports = (function(https, request, fs){
       if( typeof strings[""] !== 'undefined' )
         delete strings[""];
 
-      fs.writeFileSync(file, strings.toString());
+      fs.writeFileSync(file, JSON.stringify(strings));
 
       var formData = {
         content: fs.createReadStream(process.env.PWD + '/' + data)
