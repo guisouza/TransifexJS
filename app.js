@@ -49,7 +49,7 @@ var writeFile = function (path, cb) {
     _fs.exists(path, function(exists) {
       // Set date to rename old file
       var date = new Date();
-      var fileName = (date.getMonth() + 1) + '-' + date.getDay() + '_' + date.getHours() + date.getMinutes() + date.getSeconds();
+      var fileName = (date.getMonth() + 1) + '-' + date.getDate() + '_' + date.getHours() + date.getMinutes() + date.getSeconds();
 
       if (exists) {
         _fs.renameSync(path, path.replace(config.ext, fileName + '.' + config.ext));
