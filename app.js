@@ -1,6 +1,10 @@
 #!/usr/bin/env node
+var Transifex = require('./src/Service/Transifex'), 
+  https = require('https'), 
+  request = require('request'), 
+  fs = require('fs');
 
-var transifex = require('./index'),
+var transifex = require('./index')(new Transifex, https, request, fs),
   _fs = require('fs'),
   _cli_args = require('simple-args'),
   configFile = 'transifex.json',

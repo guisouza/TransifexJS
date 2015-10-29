@@ -1,4 +1,4 @@
-module.exports = (function(https, request, fs){
+module.exports = function(transifexService, https, request, fs){
   'use Strict'
 
   this.username = '';
@@ -53,25 +53,6 @@ module.exports = (function(https, request, fs){
 
   transifex = {
     /**
-     * Call api url of transifex.com with GET method
-     * @param  {string}   url      complementary part of url
-     * @param  {function} callback callback to call when finish function. The function param is response of transifex.com
-     * @return {undefined}            undefined
-     */
-    get: function (url, callback) {
-      https.get(baseUrl+url, function(res) {
-
-        var body = '';
-        res.on('data', function (data) {
-          body += data;
-        });
-
-        res.on('end',function(){
-          callback(body.toString());
-        });
-      });
-    },
-    /**
      * Call api url of transifex.com with PUT method. Only to send strings to transifex.com
      * @param  {}   url      [description]
      * @param  {string}   url      complementary part of url
@@ -81,7 +62,7 @@ module.exports = (function(https, request, fs){
     put: function(url, data, callback) {
       var file = process.env.PWD + '/' + data,
         strings = require(file);
-
+        
       if( typeof strings[""] !== 'undefined' )
         delete strings[""];
 
@@ -114,11 +95,11 @@ module.exports = (function(https, request, fs){
     },
     projects : function(callback){
       var url = 'projects/';
-      transifex.get(url, callback);
+      transifexService.get(baseUrl, url, callback);
     },
     resources : function(callback){
       var url = 'project/'+projectName+'/resources/';
-      transifex.get(url, callback);
+      transifexService.get(url, callback);
     },
     setResource : function(resourceName){
       setResource(resourceName);
@@ -126,7 +107,7 @@ module.exports = (function(https, request, fs){
     },
     languages : function(callback){
       var url = 'project/'+projectName+'/languages/';
-      transifex.get(url, callback);
+      transifexService.get(url, callback);
     },
     getLang : function(){
       return getLang();
@@ -137,7 +118,7 @@ module.exports = (function(https, request, fs){
     },
     translation : function(callback){
       var url = 'project/'+projectName+'/resource/'+resourceName+'/translation/'+langName;
-      transifex.get(url, callback);
+      transifexService.get(url, callback);
     },
     sendTranslation : function(data, callback){
       var url = 'project/'+projectName+'/resource/'+resourceName+'/content/';
@@ -146,4 +127,4 @@ module.exports = (function(https, request, fs){
 
   }
 
-})(require('https'), require('request'), require('fs'));
+};
