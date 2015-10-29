@@ -4,8 +4,14 @@
   "description": "Transifex API communication module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --recursive './tests/**/*.test.js'",
     "i18n": "node cli.js"
+  },
+  "devDependencies": {
+    "chai": "^1.10.0",
+    "mocha": "^2.1.0",
+    "nock": "^2.13.0",
+    "sinon": "^1.12.2"
   },
   "repository": {
     "type": "git",
@@ -31,7 +37,7 @@
     "request": "^2.45.0",
     "simple-args": "^1.0.2"
   },
-  "bin" : {
+  "bin": {
     "transifexjs": "./cli.js",
     "transifexjs-app": "./app.js"
   }
